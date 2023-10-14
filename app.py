@@ -29,8 +29,8 @@ from sklearn.metrics import silhouette_score
 import subprocess
 import sys
 
-# subprocess.check_call([sys.executable, "-m", "pip", "install", 'imblearn'])
-# subprocess.check_call([sys.executable, "-m", "pip", "install", 'xgboost'])
+subprocess.check_call([sys.executable, "-m", "pip", "install", 'imblearn'])
+subprocess.check_call([sys.executable, "-m", "pip", "install", 'xgboost'])
 # pip install imblearn
 modelname = 'finalized_model.sav'
 inputname = 'input_name.sav'
