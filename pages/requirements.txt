@@ -1,0 +1,13 @@
+streamlit
+pandas
+joblib
+numpy
+seaborn
+matplotlib
+scikit-learn
+scipy
+datasist
+xgboost
+imblearn
+locale
+time
