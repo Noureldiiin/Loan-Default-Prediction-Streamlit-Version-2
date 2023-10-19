@@ -94,24 +94,9 @@ def predict_loan_default(Age, Income, LoanAmount, CreditScore, MonthsEmployed, N
     columns_to_drop = ['Age', 'Income', 'LoanAmount', 'CreditScore', 'MonthsEmployed', 'NumCreditLines', 'DTIRatio', 'InterestRate', 'LoanTerm']
     input_data.drop(columns=columns_to_drop, inplace=True)
     
-    progress_cycle = st.empty()
-
-    # Simulate a progress cycle with a pie chart
-    progress = 0
-    while progress <= 100:
-        progress_cycle.pyplot(plt.pie([progress, 100 - progress], labels=['Progress', ''], autopct='%1.1f%%'))
-        st.text(f"Progress: {progress}%")
-        st.progress(progress)
-        progress += 10
-        st.empty()  # Clear the previous chart
-
-    # Final completion message
-    st.text("Progress: 100% - Completed!")
-     
-
+    
     # Make a prediction
     prediction = model.predict(input_data)[0]
-
     return prediction
 
 def main():
