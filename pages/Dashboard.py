@@ -25,25 +25,6 @@ def update_progress_bar(progress, max_progress):
 
 # Display the range of income\f
 
-# Set the locale for formatting counts
-locale.setlocale(locale.LC_ALL, '')
-
-# Calculate and format the counts of loan purposes
-Income = df['Income'].value_counts().reset_index()
-Income.columns = ['Income', 'Count']
-Income['FormattedCount'] = Income['Count'].apply(lambda x: locale.format_string('%d', x, grouping=True))
-
-plt.figure(figsize=(12, 6))
-sns.barplot(data=Income, x='Income', y='Count', color='blue')
-plt.title('Income')
-plt.xlabel('Income')
-plt.ylabel('Count')
-plt.xticks(rotation=45)
-plt.tight_layout()
-
-st.subheader("Income")
-st.pyplot(plt.gcf())
-
 min_income = df['Income'].min()
 max_income = df['Income'].max()
 st.subheader("Income Range")
