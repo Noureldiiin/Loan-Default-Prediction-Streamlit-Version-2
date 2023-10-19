@@ -24,6 +24,12 @@ def update_progress_bar(progress, max_progress):
     progress_bar.progress(progress / max_progress)
 
 # Display the range of income
+st.subheader("Income Distribution")
+sns.set(style="whitegrid")
+plt.figure(figsize=(10, 6))
+sns.barplot(x="Income", y=input_data["Income"].index, data=input_data)
+st.pyplot()
+
 min_income = df['Income'].min()
 max_income = df['Income'].max()
 st.subheader("Income Range")
