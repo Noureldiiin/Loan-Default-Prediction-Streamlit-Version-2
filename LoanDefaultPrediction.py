@@ -149,16 +149,30 @@ def main():
 
 
     if st.button("Predict"):
+        print('hi')
+        # Create a progress bar
+        progress_bar = st.progress(0)
+        
+        # Function to update the progress bar
+        def update_progress(progress):
+            progress_bar.progress(progress)
+        
+        # Simulate a long-running process (you should replace this with your actual prediction code)
+        for i in range(100):
+            time.sleep(0.1)  # Simulate some work being done
+            update_progress(i + 1)
+        
         # Make the prediction
         prediction = predict_loan_default(Age, Income, LoanAmount, CreditScore, MonthsEmployed, NumCreditLines, InterestRate, LoanTerm, DTIRatio, Education, EmploymentType, MaritalStatus, HasMortgage, HasDependents, LoanPurpose, HasCoSigner)
         
-        print('ssssss')
-        print(prediction)
+        # Clear the progress bar
+        progress_bar.empty()
+        
         # Display the prediction
         if prediction == 1:
             st.write("Loan Default: Yes")
         else:
             st.write("Loan Default: No")
-    
+        
     
 main()
