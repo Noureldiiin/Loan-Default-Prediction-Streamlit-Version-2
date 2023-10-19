@@ -155,10 +155,14 @@ def main():
         print('ssssss')
         print(prediction)
         # Display the prediction
-        if prediction == 1:
-            st.success("Loan Default: Yes")
+         if prediction == 1:
+            st.button("Loan Default: Yes", key="popup_yes")
+            if st.session_state.popup_yes:
+                st.info("Loan Default: Yes")
         else:
-            st.success("Loan Default: No")
+            st.button("Loan Default: No", key="popup_no")
+            if st.session_state.popup_no:
+                st.info("Loan Default: No")
     
     
 main()
