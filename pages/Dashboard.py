@@ -29,12 +29,12 @@ def update_progress_bar(progress, max_progress):
 locale.setlocale(locale.LC_ALL, '')
 
 # Calculate and format the counts of loan purposes
-loan_purpose_counts = df['Income'].value_counts().reset_index()
-loan_purpose_counts.columns = ['Income', 'Count']
-loan_purpose_counts['FormattedCount'] = loan_purpose_counts['Count'].apply(lambda x: locale.format_string('%d', x, grouping=True))
+Income = df['Income'].value_counts().reset_index()
+Income.columns = ['Income', 'Count']
+Income['FormattedCount'] = Income['Count'].apply(lambda x: locale.format_string('%d', x, grouping=True))
 
 plt.figure(figsize=(12, 6))
-sns.barplot(data=loan_purpose_counts, x='Income', y='Count', color='blue')
+sns.barplot(data=Income, x='Income', y='Count', color='blue')
 plt.title('Income')
 plt.xlabel('Income')
 plt.ylabel('Count')
