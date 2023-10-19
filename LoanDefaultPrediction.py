@@ -156,9 +156,9 @@ def main():
         print(prediction)
         # Display the prediction
         if prediction == 1:
-            st.write("Loan Default: Yes")
+            st.success("Loan Default: Yes")
         else:
-            st.write("Loan Default: No")
+            st.success("Loan Default: No")
     
     
 main()
