@@ -26,8 +26,8 @@ def update_progress_bar(progress, max_progress):
 # Display the range of income
 plt.figure(figsize=(8, 6))
 sns.histplot(data=df, x='Income', kde=True)  # Using a histogram with a kernel density estimate
-plt.xlabel('Income')
-plt.ylabel('Count')
+# plt.xlabel('Income')
+# plt.ylabel('Count')
 plt.title('Income Distribution')
 
 st.subheader("Income Distribution")
