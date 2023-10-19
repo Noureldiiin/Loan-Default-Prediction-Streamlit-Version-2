@@ -46,6 +46,7 @@ inputs = pickle.load(open(inputname, 'rb'))
 
 def predict_loan_default(Age, Income, LoanAmount, CreditScore, MonthsEmployed, NumCreditLines, InterestRate, LoanTerm, DTIRatio, Education, EmploymentType, MaritalStatus, HasMortgage, HasDependents, LoanPurpose, HasCoSigner):
     # Create a DataFrame with input features
+    progress_bar = st.progress(0)
     input_data = pd.DataFrame(columns=inputs)
     
     input_data.at[0, 'Age'] = Age
@@ -95,8 +96,13 @@ def predict_loan_default(Age, Income, LoanAmount, CreditScore, MonthsEmployed, N
     input_data.drop(columns=columns_to_drop, inplace=True)
     
     
+     
+
     # Make a prediction
     prediction = model.predict(input_data)[0]
+
+    # Update the progress bar to 100%
+    progress_bar.progress(100)
     return prediction
 
 def main():
