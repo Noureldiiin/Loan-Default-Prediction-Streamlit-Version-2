@@ -24,10 +24,13 @@ def update_progress_bar(progress, max_progress):
     progress_bar.progress(progress / max_progress)
 
 # Display the range of income
+plt.figure(figsize=(8, 6))
+sns.histplot(data=df, x='Income', kde=True)  # Using a histogram with a kernel density estimate
+plt.xlabel('Income')
+plt.ylabel('Frequency')
+plt.title('Income Distribution')
+
 st.subheader("Income Distribution")
-sns.set(style="whitegrid")
-plt.figure(figsize=(10, 6))
-sns.barplot(x="Income", y=input_data["Income"].index, data=input_data)
 st.pyplot()
 
 min_income = df['Income'].min()
