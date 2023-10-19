@@ -46,7 +46,6 @@ inputs = pickle.load(open(inputname, 'rb'))
 
 def predict_loan_default(Age, Income, LoanAmount, CreditScore, MonthsEmployed, NumCreditLines, InterestRate, LoanTerm, DTIRatio, Education, EmploymentType, MaritalStatus, HasMortgage, HasDependents, LoanPurpose, HasCoSigner):
     # Create a DataFrame with input features
-    progress_bar = st.progress(0)
     input_data = pd.DataFrame(columns=inputs)
     
     input_data.at[0, 'Age'] = Age
@@ -95,14 +94,24 @@ def predict_loan_default(Age, Income, LoanAmount, CreditScore, MonthsEmployed, N
     columns_to_drop = ['Age', 'Income', 'LoanAmount', 'CreditScore', 'MonthsEmployed', 'NumCreditLines', 'DTIRatio', 'InterestRate', 'LoanTerm']
     input_data.drop(columns=columns_to_drop, inplace=True)
     
-    
+    progress_cycle = st.empty()
+
+    # Simulate a progress cycle with a pie chart
+    progress = 0
+    while progress <= 100:
+        progress_cycle.pyplot(plt.pie([progress, 100 - progress], labels=['Progress', ''], autopct='%1.1f%%'))
+        st.text(f"Progress: {progress}%")
+        st.progress(progress)
+        progress += 10
+        st.empty()  # Clear the previous chart
+
+    # Final completion message
+    st.text("Progress: 100% - Completed!")
      
 
     # Make a prediction
     prediction = model.predict(input_data)[0]
 
-    # Update the progress bar to 100%
-    progress_bar.progress(100)
     return prediction
 
 def main():
