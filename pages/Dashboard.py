@@ -88,7 +88,7 @@ st.subheader("Common Education level for for Unemployed Individuals")
 st.pyplot(plt.gcf())
 update_progress_bar(7, 16)  # Progress: 7/16
 
-employment_purpose_rates = df[df['EmploymentType'] == 'Unemployed' & df['LoanPurpose'] == 'Home'].groupby('Education')['Default'].sum().reset_index()
+employment_purpose_rates = df[df['EmploymentType'] == 'Unemployed' & df['LoanPurpose'] == 'Home'].groupby('Education')['Default'].sum()
 st.write(f"{employment_purpose_rates}")
 # employment_purpose_rates = df[df['EmploymentType'] == 'Unemployed' & df['LoanPurpose'] == 'Home'].groupby('Education')['Default'].sum().reset_index()
 # plt.figure(figsize=(8, 6))
