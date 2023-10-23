@@ -156,6 +156,15 @@ st.subheader('Average Interest Rate For Each Employment Type')
 st.pyplot(plt.gcf())
 
 
+# Average Credit Score For Each Employment Type
+employment_purpose_rates_home = df.groupby('EmploymentType')['CreditScore'].mean().reset_index()
+plt.figure(figsize=(8, 6))
+plt.pie(employment_purpose_rates_home['CreditScore'], labels=employment_purpose_rates_home['EmploymentType'], autopct='%1.1f%%')
+# plt.title('Education When Co Signer Equals Yes')
+st.subheader('Average Credit Score For Each Employment Type')
+st.pyplot(plt.gcf())
+
+
 # Calculate the average loan term (duration)
 average_loan_term = df['LoanTerm'].mean()
 
