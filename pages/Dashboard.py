@@ -111,6 +111,17 @@ st.subheader('Common Loan Purpose for Unemployed Individuals When Loan Purpose E
 st.pyplot(plt.gcf())
 
 
+# Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Business
+employment_purpose_rates = df[(df['EmploymentType'] == 'Unemployed') & (df['LoanPurpose'] == 'Business')].groupby('Education')['Default'].sum().reset_index()
+plt.figure(figsize=(8, 6))
+sns.barplot(x='Education', y='Default', data=employment_purpose_rates)
+plt.xlabel('Education')
+plt.ylabel('Default Rate')
+plt.title('Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Business')
+st.subheader('Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Business')
+st.pyplot(plt.gcf())
+
+
 # Calculate the average loan term (duration)
 average_loan_term = df['LoanTerm'].mean()
 
