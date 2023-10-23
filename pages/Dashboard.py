@@ -140,9 +140,9 @@ st.pyplot(plt.gcf())
 st.title('Average Loan Term For Each Employment Type')
 
 # Create a unique color for each employment type
-color_scale = alt.Scale(domain=data['EmploymentType'], range=['red', 'blue', 'green', 'orange'])
+color_scale = alt.Scale(domain=df['EmploymentType'], range=['red', 'blue', 'green', 'orange'])
 
-chart = alt.Chart(data).mark_area().encode(
+chart = alt.Chart(df).mark_area().encode(
     x='EmploymentType:N',
     y='AverageLoanTerm:Q',
     color=alt.Color('EmploymentType:N', scale=color_scale)
