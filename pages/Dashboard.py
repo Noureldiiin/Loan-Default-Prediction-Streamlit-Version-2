@@ -26,7 +26,7 @@ def update_progress_bar(progress, max_progress):
 
 
 # Calculate the average loan term for each employment type
-employment_purpose_rates_home = df.groupby('EmploymentType')['Income'].reset_index()
+employment_purpose_rates_home = df.groupby('EmploymentType')['Income'].sum().reset_index()
 
 # Create a Streamlit subheader
 st.subheader('Average Loan Term For Each Employment Type')
