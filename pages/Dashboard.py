@@ -24,7 +24,7 @@ progress_bar = st.progress(0)
 def update_progress_bar(progress, max_progress):
     progress_bar.progress(progress / max_progress)
 
-st.title("Heatmap for Numeric Columns")
+st.subheader("Heatmap for Numeric Columns")
 
 # Create a heatmap using Seaborn
 fig, ax = plt.subplots()
