@@ -89,7 +89,7 @@ st.pyplot(plt.gcf())
 update_progress_bar(7, 16)  # Progress: 7/16
 
 
-st.write(f"{df[df['EmploymentType'] == 'Unemployed']}")
+st.write(f"{df}")
 
 
 # Default Rates by Loan Purpose for Unemployed Individuals using Seaborn
