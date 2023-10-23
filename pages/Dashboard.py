@@ -26,7 +26,7 @@ def update_progress_bar(progress, max_progress):
 
 
 # Calculate the average loan term for each employment type
-employment_purpose_rates_home = df.groupby('EmploymentType')['Income'].mean().reset_index()
+employment_purpose_rates_home = df.groupby('EmploymentType')['Income'].reset_index()
 
 # Create a Streamlit subheader
 st.subheader('Average Loan Term For Each Employment Type')
@@ -38,7 +38,7 @@ plt.title('Average Loan Term and Income by Employment Type')
 # Plot average loan income on the left Y-axis
 ax1.bar(employment_purpose_rates_home['EmploymentType'], employment_purpose_rates_home['Income'], color='b')
 ax1.set_xlabel('Employment Type')
-ax1.set_ylabel('Income', color='b')
+ax1.set_ylabel('Income', color='black')
 ax1.tick_params(axis='y', labelcolor='b')
 
 # Create a second Y-axis on the right for loan term data
