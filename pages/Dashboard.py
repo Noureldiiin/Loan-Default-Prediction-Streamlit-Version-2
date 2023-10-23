@@ -25,40 +25,6 @@ def update_progress_bar(progress, max_progress):
 
 
 
-# Define categories for grouping
-categories = ['Age', 'Income', 'LoanAmount', 'CreditScore', 'MonthsEmployed', 'NumCreditLines', 'InterestRate', 'LoanTerm',
-              'DTIRatio', 'Education', 'EmploymentType', 'MaritalStatus', 'HasMortgage', 'HasDependents', 'LoanPurpose', 'HasCoSigner']
-
-# Create a Streamlit app
-st.title("Fishbone Diagram for Design Failure Causes")
-
-# Add a dropdown menu for selecting a category
-selected_category = st.selectbox("Select a Category", categories)
-
-# Filter data based on the selected category
-filtered_data = df[[selected_category]]
-
-# Create a chart to visualize the distribution
-st.subheader(f"Distribution of {selected_category}")
-st.line_chart(filtered_data)
-
-# Text explanation
-st.subheader("Potential Causes:")
-st.write("1. Possible Cause 1")
-st.write("2. Possible Cause 2")
-st.write("3. Possible Cause 3")
-# Add more causes as needed
-
-st.subheader("Conclusion:")
-st.write("Based on the data, further analysis is needed to determine the root cause of the design failure.")
-
-st.subheader("Next Steps:")
-st.write("1. Collect more data.")
-st.write("2. Perform statistical analysis.")
-st.write("3. Consult with domain experts.")
-
-# Display the plot in Streamlit
-st.pyplot()
 
 # Display the range of income\f
 
