@@ -89,7 +89,7 @@ st.pyplot(plt.gcf())
 update_progress_bar(7, 16)  # Progress: 7/16
 
 
-st.write(f"{df}")
+st.write(f"{df[df['EmploymentType'] == 'Unemployed'].groupby('LoanPurpose')['Default'].sum().reset_index()}")
 
 
 # Default Rates by Loan Purpose for Unemployed Individuals using Seaborn
