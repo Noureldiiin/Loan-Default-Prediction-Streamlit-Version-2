@@ -5,6 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import locale
 import time
+import altair as alt
 
 # Load your data (replace 'df' with the actual DataFrame)
 dfname = 'dataframe.sav'
