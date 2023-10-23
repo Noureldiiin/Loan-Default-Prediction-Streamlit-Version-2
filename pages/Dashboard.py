@@ -101,22 +101,18 @@ st.pyplot(plt.gcf())
 update_progress_bar(8, 16)  # Progress: 8/16
 
 # Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Home
-employment_purpose_rates = df[(df['EmploymentType'] == 'Unemployed') & (df['LoanPurpose'] == 'Home')].groupby('Education')['Default'].sum().reset_index()
+employment_purpose_rates_home = df[(df['EmploymentType'] == 'Unemployed') & (df['LoanPurpose'] == 'Home')].groupby('Education')['Default'].sum().reset_index()
 plt.figure(figsize=(8, 6))
-sns.barplot(x='Education', y='Default', data=employment_purpose_rates)
-plt.xlabel('Education')
-plt.ylabel('Default Rate')
+plt.pie(employment_purpose_rates_home['Default'], labels=employment_purpose_rates_home['Education'], autopct='%1.1f%%')
 plt.title('Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Home')
 st.subheader('Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Home')
 st.pyplot(plt.gcf())
 
 
 # Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Business
-employment_purpose_rates = df[(df['EmploymentType'] == 'Unemployed') & (df['LoanPurpose'] == 'Business')].groupby('Education')['Default'].sum().reset_index()
+employment_purpose_rates_business = df[(df['EmploymentType'] == 'Unemployed') & (df['LoanPurpose'] == 'Business')].groupby('Education')['Default'].sum().reset_index()
 plt.figure(figsize=(8, 6))
-sns.barplot(x='Education', y='Default', data=employment_purpose_rates)
-plt.xlabel('Education')
-plt.ylabel('Default Rate')
+plt.pie(employment_purpose_rates_business['Default'], labels=employment_purpose_rates_business['Education'], autopct='%1.1f%%')
 plt.title('Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Business')
 st.subheader('Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Business')
 st.pyplot(plt.gcf())
