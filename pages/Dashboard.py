@@ -24,6 +24,11 @@ def update_progress_bar(progress, max_progress):
     progress_bar.progress(progress / max_progress)
 
 
+# Grouped Bar Chart
+st.subheader("Grouped Bar Chart")
+grouped_bar_data = df.groupby(['Education', 'MaritalStatus']).size().unstack()
+grouped_bar_fig = grouped_bar_data.plot(kind='bar')
+st.pyplot(grouped_bar_fig)
 
 
 # Display the range of income\f
