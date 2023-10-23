@@ -26,17 +26,6 @@ def update_progress_bar(progress, max_progress):
 
 
 
-st.title("Heatmap for Numeric Columns")
-
-# Display the data in Streamlit
-st.dataframe(df)
-
-# Create a heatmap
-st.subheader("Heatmap")
-fig, ax = plt.subplots()
-sns.heatmap(data.corr(), annot=True, cmap="coolwarm", fmt=".2f", ax=ax)
-st.pyplot(fig)
-
 
 
 # Display the range of income\f
