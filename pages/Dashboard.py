@@ -37,7 +37,7 @@ selected_category = st.selectbox("Select a Category", categories)
 
 # Create a figure and subplot
 fig, ax = plt.subplots(figsize=(8, 6))
-sns.histplot(data=data, x=selected_category, kde=True)
+sns.histplot(data=df, x=selected_category, kde=True)
 
 # Set the plot title
 ax.set_title(f"{selected_category} Distribution")
