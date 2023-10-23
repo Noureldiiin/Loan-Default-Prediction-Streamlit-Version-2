@@ -28,7 +28,7 @@ st.title("Heatmap for Numeric Columns")
 
 # Create a heatmap using Seaborn
 fig, ax = plt.subplots()
-sns.heatmap(df.corr(), annot=True, cmap="coolwarm", fmt=".2f", ax=ax)
+sns.heatmap(df.select_dtypes(include = "number").corr(), annot=True, cmap="coolwarm", fmt=".2f", ax=ax)
 
 # Display the heatmap in Streamlit using st.pyplot
 st.pyplot(fig)
