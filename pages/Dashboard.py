@@ -88,6 +88,20 @@ st.subheader("Common Education level for for Unemployed Individuals")
 st.pyplot(plt.gcf())
 update_progress_bar(7, 16)  # Progress: 7/16
 
+
+# Default Rates by Loan Purpose for Unemployed Individuals using Seaborn
+employment_purpose_rates = df[df['EmploymentType'] == 'Unemployed'  and df ['LoanPurpose'] == 'Home' ].groupby('Education')['Default'].sum().reset_index()
+plt.figure(figsize=(8, 6))
+sns.barplot(x='LoanPurpose', y='Default', data=employment_purpose_rates)
+plt.xlabel('Loan Purpose')
+plt.ylabel('Default Rate')
+plt.title('Common Loan Purpose for Unemployed Individuals')
+
+st.subheader("Common Loan Purpose for Unemployed Individuals")
+st.pyplot(plt.gcf())
+update_progress_bar(8, 16)  # Progress: 8/16
+
+
 # Default Rates by Loan Purpose for Unemployed Individuals using Seaborn
 employment_purpose_rates = df[df['EmploymentType'] == 'Unemployed'].groupby('LoanPurpose')['Default'].sum().reset_index()
 plt.figure(figsize=(8, 6))
