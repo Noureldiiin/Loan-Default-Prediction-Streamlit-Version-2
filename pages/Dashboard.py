@@ -159,9 +159,13 @@ st.pyplot(plt.gcf())
 # Average Credit Score For Each Employment Type
 employment_purpose_rates_home = df.groupby('EmploymentType')['CreditScore'].mean().reset_index()
 plt.figure(figsize=(8, 6))
-plt.pie(employment_purpose_rates_home['CreditScore'], labels=employment_purpose_rates_home['EmploymentType'], autopct='%1.1f%%')
-# plt.title('Education When Co Signer Equals Yes')
-st.subheader('Average Credit Score For Each Employment Type')
+plt.plot(employment_purpose_rates_home['EmploymentType'], employment_purpose_rates_home['CreditScore'], marker='o', linestyle='-', color='b')
+plt.xlabel('Employment Type')
+plt.ylabel('Average Credit Score')
+plt.title('Average Credit Score For Each Employment Type')
+plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+
+# Use st.pyplot() to display the chart in Streamlit
 st.pyplot(plt.gcf())
 
 
