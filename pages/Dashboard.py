@@ -24,7 +24,14 @@ progress_bar = st.progress(0)
 def update_progress_bar(progress, max_progress):
     progress_bar.progress(progress / max_progress)
 
+st.title("Heatmap for Numeric Columns")
 
+# Create a heatmap using Seaborn
+fig, ax = plt.subplots()
+sns.heatmap(df.corr(), annot=True, cmap="coolwarm", fmt=".2f", ax=ax)
+
+# Display the heatmap in Streamlit using st.pyplot
+st.pyplot(fig)
 
 
 
