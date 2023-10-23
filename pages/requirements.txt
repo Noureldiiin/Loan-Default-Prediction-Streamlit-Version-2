@@ -9,3 +9,4 @@ scipy
 datasist
 xgboost
 imblearn
+altair
