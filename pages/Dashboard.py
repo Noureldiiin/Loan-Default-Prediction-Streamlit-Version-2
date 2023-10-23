@@ -25,27 +25,21 @@ def update_progress_bar(progress, max_progress):
 
 
 
-# Calculate the average loan term for each employment type
-employment_purpose_rates_home = df.groupby('EmploymentType')['Income'].sum().reset_index()
-
-# Create a Streamlit subheader
-st.subheader('Average Loan Term For Each Employment Type')
+st.subheader('Average Loan Term and Income For Each Employment Type')
 
 # Create a figure with two subplots for the dual-axis chart
 fig, ax1 = plt.subplots(figsize=(8, 6))
 plt.title('Average Loan Term and Income by Employment Type')
 
 # Plot average loan income on the left Y-axis
-ax1.bar(employment_purpose_rates_home['EmploymentType'], employment_purpose_rates_home['Income'], color='b')
+ax1.bar(df['EmploymentType'], df['Income'], color='b')
 ax1.set_xlabel('Employment Type')
-ax1.set_ylabel('Income', color='black')
+ax1.set_ylabel('Income', color='b')
 ax1.tick_params(axis='y', labelcolor='b')
 
 # Create a second Y-axis on the right for loan term data
-# Assuming you have a list of loan term data for each employment type
-loan_term_data = [10, 15, 20, 12]  # Adjust the number of elements to match the 'EmploymentType' count
 ax2 = ax1.twinx()
-ax2.plot(employment_purpose_rates_home['EmploymentType'], loan_term_data, color='r', marker='o')
+ax2.plot(df['EmploymentType'], df['LoanTerm'], color='r', marker='o')
 ax2.set_ylabel('Average Loan Term', color='r')
 
 # Display the dual-axis chart in Streamlit
