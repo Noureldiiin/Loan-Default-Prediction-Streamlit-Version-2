@@ -136,10 +136,21 @@ plt.pie(employment_purpose_rates_home['Default'], labels=employment_purpose_rate
 st.subheader('Education When Has Dependents Equals Yes')
 st.pyplot(plt.gcf())
 
-employment_purpose_rates_home = df.groupby('EmploymentType')['LoanTerm'].mean().reset_index()
-
-st.area_chart(employment_purpose_rates_home.set_index('EmploymentType'))
 st.title('Average Loan Term For Each Employment Type')
+
+# Create a unique color for each employment type
+color_scale = alt.Scale(domain=data['EmploymentType'], range=['red', 'blue', 'green', 'orange'])
+
+chart = alt.Chart(data).mark_area().encode(
+    x='EmploymentType:N',
+    y='AverageLoanTerm:Q',
+    color=alt.Color('EmploymentType:N', scale=color_scale)
+).properties(
+    width=600,
+    height=400
+)
+
+st.altair_chart(chart, use_container_width=True)
 
 # Average Loan Term For Each Employment Type
 employment_purpose_rates_home = df.groupby('EmploymentType')['LoanTerm'].std().reset_index()
