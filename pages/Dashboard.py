@@ -25,26 +25,6 @@ def update_progress_bar(progress, max_progress):
 
 
 
-st.subheader('Average Loan Term and Income For Each Employment Type')
-
-# Create a figure with two subplots for the dual-axis chart
-fig, ax1 = plt.subplots(figsize=(8, 6))
-plt.title('Average Loan Term and Income by Employment Type')
-
-# Plot average loan income on the left Y-axis
-ax1.bar(df['EmploymentType'], df['Income'], color='b')
-ax1.set_xlabel('Employment Type')
-ax1.set_ylabel('Income', color='b')
-ax1.tick_params(axis='y', labelcolor='b')
-
-# Create a second Y-axis on the right for loan term data
-ax2 = ax1.twinx()
-ax2.plot(df['EmploymentType'], df['LoanTerm'], color='r', marker='o')
-ax2.set_ylabel('Average Loan Term', color='r')
-
-# Display the dual-axis chart in Streamlit
-st.pyplot(fig)
-
 
 # Display the range of income\f
 
