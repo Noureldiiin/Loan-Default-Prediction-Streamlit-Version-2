@@ -120,6 +120,13 @@ plt.title('Common Loan Purpose for Unemployed Individuals When Loan Purpose Equa
 st.subheader('Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Business')
 st.pyplot(plt.gcf())
 
+# Education When Co Signer Equals Yes
+employment_purpose_rates_home = df[(df['HasCoSigner'] == 'Yes')].groupby('Education')['Default'].sum().reset_index()
+plt.figure(figsize=(8, 6))
+plt.pie(employment_purpose_rates_home['Default'], labels=employment_purpose_rates_home['Education'], autopct='%1.1f%%')
+plt.title('Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Home')
+st.subheader('Common Loan Purpose for Unemployed Individuals When Loan Purpose Equals Home')
+st.pyplot(plt.gcf())
 
 # Calculate the average loan term (duration)
 average_loan_term = df['LoanTerm'].mean()
