@@ -138,7 +138,7 @@ st.pyplot(plt.gcf())
 
 
 # Average Loan Term For Each Employment Type
-employment_purpose_rates_home = df.groupby('EmploymentType')['LoanTerm'].mean().reset_index()
+employment_purpose_rates_home = df.groupby('EmploymentType')['LoanTerm'].std().reset_index()
 plt.figure(figsize=(8, 6))
 plt.pie(employment_purpose_rates_home['LoanTerm'], labels=employment_purpose_rates_home['EmploymentType'], autopct='%1.1f%%')
 # plt.title('Education When Co Signer Equals Yes')
