@@ -23,6 +23,29 @@ progress_bar = st.progress(0)
 def update_progress_bar(progress, max_progress):
     progress_bar.progress(progress / max_progress)
 
+
+
+# Define categories for grouping
+categories = ['Age', 'Income', 'LoanAmount', 'CreditScore', 'MonthsEmployed', 'NumCreditLines', 'InterestRate', 'LoanTerm',
+              'DTIRatio', 'Education', 'EmploymentType', 'MaritalStatus', 'HasMortgage', 'HasDependents', 'LoanPurpose', 'HasCoSigner']
+
+# Create a Streamlit app
+st.title("Fishbone Diagram for Design Failure Causes")
+
+# Add a dropdown menu for selecting a category
+selected_category = st.selectbox("Select a Category", categories)
+
+# Create a figure and subplot
+fig, ax = plt.subplots(figsize=(8, 6))
+sns.histplot(data=data, x=selected_category, kde=True)
+
+# Set the plot title
+ax.set_title(f"{selected_category} Distribution")
+
+# Display the plot in Streamlit
+st.pyplot(fig)
+
+
 # Display the range of income\f
 
 min_income = df['Income'].min()
