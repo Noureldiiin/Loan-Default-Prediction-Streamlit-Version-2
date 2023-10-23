@@ -136,6 +136,10 @@ plt.pie(employment_purpose_rates_home['Default'], labels=employment_purpose_rate
 st.subheader('Education When Has Dependents Equals Yes')
 st.pyplot(plt.gcf())
 
+employment_purpose_rates_home = df.groupby('EmploymentType')['LoanTerm'].mean().reset_index()
+
+st.area_chart(employment_purpose_rates_home.set_index('EmploymentType'))
+st.title('Average Loan Term For Each Employment Type')
 
 # Average Loan Term For Each Employment Type
 employment_purpose_rates_home = df.groupby('EmploymentType')['LoanTerm'].std().reset_index()
